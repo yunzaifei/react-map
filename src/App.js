@@ -3,6 +3,7 @@ import L from 'leaflet';
 import { Map, TileLayer } from 'react-leaflet';
 import './assets/stylesheets/App.css';
 import 'leaflet/dist/leaflet.css';
+import locations from './date/location.json';
 
 const MAPBOX_API_KEY = process.env.REACT_APP_MAPBOX_API_KEY;
 const MAPBOX_USERID = process.env.REACT_APP_MAPBOX_USERID;
@@ -32,9 +33,8 @@ function App() {
       };
     });
 
-    const marker = L.marker([39.907132, 116.386546]);
-    marker.bindPopup('北京欢迎您！');
-    marker.addTo(map);
+    const geoJson = new L.GeoJSON(locations);
+    geoJson.addTo(map);
   }, [myRef])
 
   return (
