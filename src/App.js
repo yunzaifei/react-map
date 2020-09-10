@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import L from 'leaflet';
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Map, TileLayer } from 'react-leaflet';
 import './assets/stylesheets/App.css';
 import 'leaflet/dist/leaflet.css';
 
@@ -9,6 +9,8 @@ const MAPBOX_USERID = process.env.REACT_APP_MAPBOX_USERID;
 const MAPBOX_STYLEID = process.env.REACT_APP_MAPBOX_STYLEID;
 
 function App() {
+  const myRef = useRef();
+
   useEffect(() => {
     delete L.Icon.Default.prototype._getIconUrl;
     L.Icon.Default.mergeOptions({
@@ -18,14 +20,28 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    const { current = {} } = myRef;
+    const { leafletElement: map } = current;
+
+    if (!map) return;
+    map.eachLayer((layer = {}) => {
+      const { options: { name } } = layer;
+      if ( name !== 'Mapbox' ) {
+        map.removeLayer(layer);
+      };
+    });
+
+    const marker = L.marker([39.907132, 116.386546]);
+    marker.bindPopup('北京欢迎您！');
+    marker.addTo(map);
+  }, [myRef])
+
   return (
-    <Map center={[39.907132, 116.386546]} zoom={12}>
+    <Map ref={myRef} center={[39.907132, 116.386546]} zoom={12}>
       <TileLayer 
         url={`https://api.mapbox.com/styles/v1/${MAPBOX_USERID}/${MAPBOX_STYLEID}/tiles/256/{z}/{x}/{y}@2x?access_token=${MAPBOX_API_KEY}`}
       />
-      <Marker position={[39.907132, 116.386546]}>
-        <Popup>北京欢迎您！</Popup>
-      </Marker>
     </Map>
   );
 }
