@@ -3,7 +3,18 @@
     "features": [
       {
         "type": "Feature",
-        "properties": {},
+        "properties": {
+          "name": "DC Pizza",
+          "delivery": true,
+          "phone": "(202) 331-1800",
+          "website": "http://www.dcpizzaonline.com/",
+          "tags": [
+            "Pizza",
+            "Wings",
+            "Sandwiches",
+            "Salads"
+          ]
+        },
         "geometry": {
           "type": "Point",
           "coordinates": [
@@ -14,7 +25,18 @@
       },
       {
         "type": "Feature",
-        "properties": {},
+        "properties": {
+          "name": "DC Pizza",
+          "delivery": true,
+          "phone": "(202) 331-1800",
+          "website": "http://www.dcpizzaonline.com/",
+          "tags": [
+            "Pizza",
+            "Wings",
+            "Sandwiches",
+            "Salads"
+          ]
+        },
         "geometry": {
           "type": "Point",
           "coordinates": [
@@ -25,7 +47,18 @@
       },
       {
         "type": "Feature",
-        "properties": {},
+        "properties": {
+          "name": "DC Pizza",
+          "delivery": true,
+          "phone": "(202) 331-1800",
+          "website": "http://www.dcpizzaonline.com/",
+          "tags": [
+            "Pizza",
+            "Wings",
+            "Sandwiches",
+            "Salads"
+          ]
+        },
         "geometry": {
           "type": "Point",
           "coordinates": [
@@ -36,7 +69,18 @@
       },
       {
         "type": "Feature",
-        "properties": {},
+        "properties": {
+          "name": "DC Pizza",
+          "delivery": true,
+          "phone": "(202) 331-1800",
+          "website": "http://www.dcpizzaonline.com/",
+          "tags": [
+            "Pizza",
+            "Wings",
+            "Sandwiches",
+            "Salads"
+          ]
+        },
         "geometry": {
           "type": "Point",
           "coordinates": [

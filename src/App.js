@@ -33,12 +33,43 @@ function App() {
       };
     });
 
-    const geoJson = new L.GeoJSON(locations);
+    const geoJson = new L.GeoJSON(locations, {
+      onEachFeature: (feature = {}, layer) => {
+        console.log('feature', feature, 'layer', layer);
+        const { properties = {} } = feature;
+        const { name, delivery, tags, phone, website } = properties;
+        const popup = new L.popup();
+
+        const div = `
+          <div class="restaurant-popup">
+            <h3>${name}</h3>
+            <ul>
+              <li>
+                ${tags.join(', ')}
+              </li>
+              <li>
+                <strong>Delivery:</strong> ${delivery ? 'Yes' : 'No'}
+              </li>
+              <li>
+                <strong>Phone:</strong> ${phone}
+              </li>
+              <li>
+                <strong>Website:</strong> <a href="${website}">${website}</a>
+              </li>
+            </ul>
+          </div>
+        `;
+
+        popup.setContent(div);
+
+        layer.bindPopup(popup);
+      },
+    });
     geoJson.addTo(map);
   }, [myRef])
 
   return (
-    <Map ref={myRef} center={[39.907132, 116.386546]} zoom={12}>
+    <Map ref={myRef} center={[39.907132, 116.386546]} zoom={18}>
       <TileLayer 
         url={`https://api.mapbox.com/styles/v1/${MAPBOX_USERID}/${MAPBOX_STYLEID}/tiles/256/{z}/{x}/{y}@2x?access_token=${MAPBOX_API_KEY}`}
       />
