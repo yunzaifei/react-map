@@ -5,9 +5,9 @@ import './assets/stylesheets/App.css';
 import 'leaflet/dist/leaflet.css';
 import locations from './date/location.json';
 
-const MAPBOX_API_KEY = process.env.REACT_APP_MAPBOX_API_KEY;
-const MAPBOX_USERID = process.env.REACT_APP_MAPBOX_USERID;
-const MAPBOX_STYLEID = process.env.REACT_APP_MAPBOX_STYLEID;
+// const MAPBOX_API_KEY = process.env.REACT_APP_MAPBOX_API_KEY;
+// const MAPBOX_USERID = process.env.REACT_APP_MAPBOX_USERID;
+// const MAPBOX_STYLEID = process.env.REACT_APP_MAPBOX_STYLEID;
 
 function App() {
   const myRef = useRef();
@@ -71,7 +71,9 @@ function App() {
   return (
     <Map ref={myRef} center={[39.907132, 116.386546]} zoom={18}>
       <TileLayer 
-        url={`https://api.mapbox.com/styles/v1/${MAPBOX_USERID}/${MAPBOX_STYLEID}/tiles/256/{z}/{x}/{y}@2x?access_token=${MAPBOX_API_KEY}`}
+        // url={`https://api.mapbox.com/styles/v1/${MAPBOX_USERID}/${MAPBOX_STYLEID}/tiles/256/{z}/{x}/{y}@2x?access_token=${MAPBOX_API_KEY}`}
+        url={'https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}'}
+        subdomains={['1', '2', '3', '4']}
       />
     </Map>
   );
