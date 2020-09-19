@@ -6,3 +6,22 @@
 main {
   padding: 0;
 }
+
+.search-actions {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.search-actions ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  justify-content: flex-end;
+}
+
+.search-actions li {
+  list-style: none;
+  margin-right: 5px;
+}
