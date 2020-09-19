@@ -4,6 +4,8 @@ import { Map, TileLayer } from 'react-leaflet';
 import './assets/stylesheets/App.css';
 import 'leaflet/dist/leaflet.css';
 import locations from './date/location.json';
+import utensilsIcon from './assets/images/utensils-marker.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 
 // const MAPBOX_API_KEY = process.env.REACT_APP_MAPBOX_API_KEY;
 // const MAPBOX_USERID = process.env.REACT_APP_MAPBOX_USERID;
@@ -34,6 +36,17 @@ function App() {
     });
 
     const geoJson = new L.GeoJSON(locations, {
+      pointToLayer: (feature = {}, latlng) => {
+        return L.marker(latlng, {
+          icon: new L.icon({
+            iconUrl: utensilsIcon,
+            iconSize: [26, 26],
+            popupAnchor: [0, -15],
+            shadowUrl: markerShadow,
+            shadowAnchor: [13, 28]
+          })
+        })
+      },
       onEachFeature: (feature = {}, layer) => {
         console.log('feature', feature, 'layer', layer);
         const { properties = {}, geometry = {} } = feature;
