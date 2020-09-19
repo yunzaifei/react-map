@@ -4,88 +4,92 @@
       {
         "type": "Feature",
         "properties": {
-          "name": "DC Pizza",
+          "name": "松鹤楼(台基厂店)",
           "delivery": true,
-          "phone": "(202) 331-1800",
-          "website": "http://www.dcpizzaonline.com/",
+          "deliveryRadius": 500,
+          "phone": "010-65279255 010-65278195",
+          "address": "北京市东城区台基厂大街10号(台基厂三条路口)",
           "tags": [
-            "Pizza",
-            "Wings",
-            "Sandwiches",
-            "Salads"
+            "松鼠桂鱼",
+            "响油鳝糊",
+            "淮扬狮子头",
+            "紫砂红烧肉"
           ]
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            116.39825820922852,
-            39.90710270565395
+            116.411847,
+            39.903499
           ]
         }
       },
       {
         "type": "Feature",
         "properties": {
-          "name": "DC Pizza",
+          "name": "隆和居美食城(正义路)",
           "delivery": true,
-          "phone": "(202) 331-1800",
-          "website": "http://www.dcpizzaonline.com/",
-          "tags": [
-            "Pizza",
-            "Wings",
-            "Sandwiches",
-            "Salads"
+          "deliveryRadius": 500,
+          "phone": "010-65263265",
+          "address": "北京市东城区正义路8号(市政府斜对面)",
+          "tags": [            
+            "干锅千页豆腐",
+            "鲜花椒烹鲈鱼",
+            "辣子排骨鸡",
+            "宫保鸡丁"
           ]
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            116.38512611389159,
-            39.90822196779971
+            116.40659,
+            39.903405
           ]
         }
       },
       {
         "type": "Feature",
         "properties": {
-          "name": "DC Pizza",
+          "name": "功德林(前门店)",
           "delivery": true,
-          "phone": "(202) 331-1800",
-          "website": "http://www.dcpizzaonline.com/",
+          "deliveryRadius": 500,
+          "phone": "010-67020867 010-65112542",
+          "address": "北京市东城区前门东大街甲2号",
           "tags": [
-            "Pizza",
-            "Wings",
-            "Sandwiches",
-            "Salads"
+            "功德冬菜包",
+            "孜然羊肉串",
+            "宫保鸡丁",
+            "松鼠桂鱼"
           ]
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            116.38933181762697,
-            39.90453491751736
+            116.4117,
+            39.900421
           ]
         }
       },
       {
         "type": "Feature",
         "properties": {
-          "name": "DC Pizza",
+          "name": "资州味道",
           "delivery": true,
-          "phone": "(202) 331-1800",
-          "website": "http://www.dcpizzaonline.com/",
+          "deliveryRadius": 500,
+          "phone": "010-65282699 13121008045 13611070862",
+          "address": "北京市东城区前门东大街5号华风宾馆内一层北侧",
           "tags": [
-            "Pizza",
-            "Wings",
-            "Sandwiches",
-            "Salads"
+            "大麻鱼",
+            "兔子面",
+            "水煮牛肉",
+            "火爆腰花"
           ]
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            116.39671325683594,
-            39.91151380930014
+            116.407129,
+            39.901228
           ]
         }
       }

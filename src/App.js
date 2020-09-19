@@ -36,8 +36,15 @@ function App() {
     const geoJson = new L.GeoJSON(locations, {
       onEachFeature: (feature = {}, layer) => {
         console.log('feature', feature, 'layer', layer);
-        const { properties = {} } = feature;
-        const { name, delivery, tags, phone, website } = properties;
+        const { properties = {}, geometry = {} } = feature;
+        const { name, delivery, deliveryRadius, tags, phone, address } = properties;
+        const { coordinates } = geometry;
+
+        let deliveryZoneCircle;
+        if (deliveryRadius) {
+          deliveryZoneCircle = L.circle(coordinates.reverse(), { radius: deliveryRadius });
+        }
+
         const popup = new L.popup();
 
         const div = `
@@ -45,16 +52,16 @@ function App() {
             <h3>${name}</h3>
             <ul>
               <li>
-                ${tags.join(', ')}
+                <strong>外卖:</strong> ${delivery ? '是' : '否'}
               </li>
               <li>
-                <strong>Delivery:</strong> ${delivery ? 'Yes' : 'No'}
+                <strong>电话:</strong> ${phone}
               </li>
               <li>
-                <strong>Phone:</strong> ${phone}
+                <strong>推荐菜：</strong> ${tags.join(', ')}
               </li>
               <li>
-                <strong>Website:</strong> <a href="${website}">${website}</a>
+                <strong>地址:</strong> ${address}
               </li>
             </ul>
           </div>
@@ -63,13 +70,24 @@ function App() {
         popup.setContent(div);
 
         layer.bindPopup(popup);
+
+        layer.on('mouseover', () => {
+          if (deliveryZoneCircle) {
+            deliveryZoneCircle.addTo(map);
+          }
+        });
+        layer.on('mouseout', () => {
+          if (deliveryZoneCircle) {
+            deliveryZoneCircle.removeFrom(map);
+          }
+        });
       },
     });
     geoJson.addTo(map);
   }, [myRef])
 
   return (
-    <Map ref={myRef} center={[39.907132, 116.386546]} zoom={18}>
+    <Map ref={myRef} center={[39.90331, 116.410077]} zoom={16}>
       <TileLayer 
         // url={`https://api.mapbox.com/styles/v1/${MAPBOX_USERID}/${MAPBOX_STYLEID}/tiles/256/{z}/{x}/{y}@2x?access_token=${MAPBOX_API_KEY}`}
         url={'https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}'}
