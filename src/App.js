@@ -164,12 +164,11 @@ function App() {
           </li>
         </ul>
       </div>
-      <Map ref={mapRef} center={[39.90331, 116.410077]} zoom={16}>
+      <Map ref={mapRef} center={[39.90331, 116.410077]} zoom={16} attributionControl={false}>
         <TileLayer 
           // url={`https://api.mapbox.com/styles/v1/${MAPBOX_USERID}/${MAPBOX_STYLEID}/tiles/256/{z}/{x}/{y}@2x?access_token=${MAPBOX_API_KEY}`}
           url={'https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}'}
           subdomains={['1', '2', '3', '4']}
-          attribution="&copy;"
         />
       </Map>
     </>
