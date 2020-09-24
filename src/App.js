@@ -64,7 +64,7 @@ function App() {
             <h3>${name}</h3>
             <ul>
               <li>
-                <strong>外卖:</strong> ${delivery ? '是' : '否'}
+                <strong>外送:</strong> ${delivery ? '是' : '否'}
               </li>
               <li>
                 <strong>电话:</strong> ${phone}
