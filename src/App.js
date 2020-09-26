@@ -7,9 +7,9 @@ import locations from './date/location.json';
 import utensilsIcon from './assets/images/utensils-marker.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 
-const MAPBOX_API_KEY = process.env.REACT_APP_MAPBOX_API_KEY;
-const MAPBOX_USERID = process.env.REACT_APP_MAPBOX_USERID;
-const MAPBOX_STYLEID = process.env.REACT_APP_MAPBOX_STYLEID;
+// const MAPBOX_API_KEY = process.env.REACT_APP_MAPBOX_API_KEY;
+// const MAPBOX_USERID = process.env.REACT_APP_MAPBOX_USERID;
+// const MAPBOX_STYLEID = process.env.REACT_APP_MAPBOX_STYLEID;
 
 function App() {
   const mapRef = useRef();
